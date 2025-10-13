@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://y5gauwmiqg35"]
+
+[ext_resource type="Script" uid="uid://71hcilloyxws" path="res://scenes/Spells/EnergyBullet/energy_bullet.gd" id="1_64uhp"]
+[ext_resource type="Texture2D" uid="uid://2d3esv3y2q1a" path="res://images/Energy_Bullet.png" id="2_64uhp"]
+[ext_resource type="PackedScene" uid="uid://bgskege8qa0u6" path="res://scenes/trail.tscn" id="3_ta04x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qjxu0"]
+size = Vector2(13.999978, 7.9999876)
+
+[sub_resource type="Curve" id="Curve_wrmwo"]
+_data = [Vector2(0, 1), 0.0, -0.30791292, 0, 0, Vector2(1, 0), -0.93525976, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_s1u4m"]
+colors = PackedColorArray(0.69411767, 0.92156863, 0.92941177, 1, 0.6431373, 0.88235295, 0.89411765, 1)
+
+[node name="EnergyBullet" type="Area2D"]
+script = ExtResource("1_64uhp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.0489097e-07, -5.9604645e-08)
+rotation = -0.0017663996
+shape = SubResource("RectangleShape2D_qjxu0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(2.3841858e-07, 0)
+scale = Vector2(0.296875, 0.296875)
+texture = ExtResource("2_64uhp")
+
+[node name="Trail" parent="." instance=ExtResource("3_ta04x")]
+position = Vector2(-6, 0)
+width_curve = SubResource("Curve_wrmwo")
+default_color = Color(0.6431373, 0.88235295, 0.89411765, 1)
+gradient = SubResource("Gradient_s1u4m")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

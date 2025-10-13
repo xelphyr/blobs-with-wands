@@ -12,13 +12,21 @@ config_version=5
 
 config/name="Blobs With Wands"
 config/description="Round-based PvP battle game with wands that you upgrade every round"
-run/main_scene="uid://dst4hhg8jeyfi"
+run/main_scene="uid://cjv4tpkfdltfn"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+NetworkManager="*res://network_manager.gd"
+
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg", "res://addons/softbody2d/plugin.cfg")
+enabled=PackedStringArray("res://addons/2d_shapes/plugin.cfg", "res://addons/godot_super-wakatime/plugin.cfg", "res://addons/softbody2d/plugin.cfg")
+
+[global_group]
+
+Player="A player"
 
 [input]
 

@@ -1,9 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://c14dass6uey2"]
+[gd_scene load_steps=5 format=3 uid="uid://c14dass6uey2"]
 
 [ext_resource type="Texture2D" uid="uid://cjre1pohgg6cd" path="res://icon.svg" id="1_jqpkh"]
+[ext_resource type="Script" uid="uid://cxurklywvu7ve" path="res://wand.gd" id="1_tqelj"]
+[ext_resource type="PackedScene" uid="uid://dukifguy0pey1" path="res://scenes/Spells/Fireball/fireball_spell.tscn" id="3_eg2mp"]
+[ext_resource type="PackedScene" uid="uid://cgt4fhci8040c" path="res://scenes/Spells/EnergyBullet/energy_bullet_spell.tscn" id="4_v2ksj"]
 
 [node name="Wand" type="Node2D"]
+script = ExtResource("1_tqelj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.1484375, 1)
 texture = ExtResource("1_jqpkh")
+
+[node name="Firepoint" type="Node2D" parent="."]
+position = Vector2(0, -54)
+
+[node name="FireballSpell" parent="." instance=ExtResource("3_eg2mp")]
+
+[node name="EnergyBulletSpell" parent="." instance=ExtResource("4_v2ksj")]

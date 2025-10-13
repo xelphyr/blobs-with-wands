@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgt4fhci8040c"]
+
+[ext_resource type="Script" uid="uid://bgmiwuvbvtc1u" path="res://scenes/Spells/EnergyBullet/energy_bullet_spell.gd" id="1_8toj0"]
+
+[node name="EnergyBulletSpell" type="Node"]
+script = ExtResource("1_8toj0")
+mana_cost = 5.0
+
+[node name="FireCooldown" type="Timer" parent="."]
+wait_time = 0.135
+
+[connection signal="timeout" from="FireCooldown" to="." method="_on_fire_cooldown_timeout"]
